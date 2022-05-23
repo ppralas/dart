@@ -1,0 +1,3 @@
+class Address {
+  var value = '';
+}
