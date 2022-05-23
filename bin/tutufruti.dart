@@ -1,27 +1,50 @@
+void task1() {
+  final fruit = Fruit('yellow');
+  fruit.describeColor();
+}
+
 class Fruit {
   Fruit(this.color);
 
-  String color;
+  final color;
 
-  String get fruitColor => '$color';
+  void describeColor() {
+    print('This cfruit is $color');
+  }
 }
 
-class Mellon extends Fruit {
-  Mellon(String color, String fruitColor) : super(color);
+void task2() {
+  final melon = Melon('red');
+  final watermelon = Watermelon('red and green');
+  final cantalopupe = Cantaloupe('orange');
+}
 
-  final watermellon = Mellon('watermellon', 'red');
-  final Cantaloupe = Mellon('Cantaloupe', 'yellow');
+class Melon extends Fruit {
+  Melon(String color) : super(color);
+}
+
+class Watermelon extends Melon {
+  Watermelon(String color) : super(color);
 
   @override
-  String toString() => fruitColor;
+  void describeColor() {
+    print('the color of this watermelon is $color');
+  }
+}
 
+class Cantaloupe extends Melon {
+  Cantaloupe(String color) : super(color);
+}
+
+void task3() {
+  final fruit = Fruit('yellow');
+  final watermelon = Watermelon('red and green');
+  fruit.describeColor();
+  watermelon.describeColor();
 }
 
 void main() {
-  
-  Mellon('watermellon', 'red');
-  Mellon('Cantaloupe', 'yellow');
-
-
-  print()
+  task1();
+  task2();
+  task3();
 }
