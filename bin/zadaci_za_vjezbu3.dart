@@ -1,4 +1,4 @@
-import 'FoodType.dart';
+import 'food_type.dart';
 
 void main() {
   Car myNormalCar = Car();
@@ -14,7 +14,7 @@ void main() {
 
 //FoodType foodieOne = FoodType();
 
-class Car {
+abstract class Car {
   int numberOfSeat = 5;
 
   //i ovo je metoda
