@@ -1,8 +1,18 @@
-import 'playeres.dart';
+import 'player.dart';
 
 class Striker extends Player {
-  Striker(String name, int speed, int strenght, int stamnia)
-      : super(name, speed, strenght, stamnia);
+  Striker({String? name, int? speed, int? strenght, int? stamina})
+      : super(name: name, speed: speed, strenght: strenght, stamina: stamina);
 
-  var position = 'Striker';
+  void run() {
+    speed = speed! + 3;
+    stamina = stamina! + 6;
+  }
+
+  void rest() {
+    stamina = stamina! + 5;
+    speed = 0;
+  }
+  // cmd + slash i komentar
+
 }
