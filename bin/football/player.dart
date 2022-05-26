@@ -2,7 +2,7 @@ import 'striker.dart';
 import 'midfielder.dart';
 import 'defender.dart';
 
-abstract class Player {
+class Player {
   Player({this.name, this.speed, this.strenght, this.stamina});
 
   String? name;
@@ -18,40 +18,58 @@ abstract class Player {
 void main() {
   final milan = Striker(
     name: 'Milan',
-    speed: 40,
+    // speed: 40,
     strenght: 23,
     stamina: 30,
   );
 
-  final dominik = Defender(
-    name: 'Dominik',
-    speed: 30,
-    strenght: 70,
-    stamina: 10,
-  );
+  //tu idu try catch blokovi i baca se eksepsn i napravit custom exeption i napravim svoju poruku,
+  try {
+    print(milan.toString());
+    milan.run();
+    print(milan.toString());
 
-  final adrijan = Midfielder(
-    name: 'Adrijan',
-    speed: 60,
-    strenght: 40,
-    stamina: 92,
-  );
+    milan.run();
+    print(milan.toString());
 
-  print(milan.toString());
-  milan.run();
-  print(milan.toString());
-  milan.rest();
-  print(milan.toString());
+    milan.run();
+    print(milan.toString());
+    milan.run();
+    print(milan.toString());
+    milan.rest();
+    print(milan.toString());
+  } on SpeedException catch (e) {
+    print(e.errorMessage());
+  }
+  // final dominik = Defender(
+  //   name: 'Dominik',
+  //   speed: 30,
+  //   strenght: 70,
+  //   stamina: 10,
+  // );
 
-  print(dominik.toString());
-  dominik.run();
-  print(dominik.toString());
-  dominik.rest();
-  print(dominik.toString());
+  // final adrijan = Midfielder(
+  //   name: 'Adrijan',
+  //   speed: 60,
+  //   strenght: 40,
+  //   stamina: 92,
+  // );
 
-  print(adrijan.toString());
-  adrijan.run();
-  print(adrijan.toString());
-  adrijan.rest();
-  print(adrijan.toString());
+  // print(dominik.toString());
+  // dominik.run();
+  // print(dominik.toString());
+  // dominik.rest();
+  // print(dominik.toString());
+
+  // print(adrijan.toString());
+  // adrijan.run();
+  // print(adrijan.toString());
+  // adrijan.rest();
+  // print(adrijan.toString());
+}
+
+class SpeedException implements Exception {
+  String errorMessage() {
+    return "No running that fast!";
+  }
 }
